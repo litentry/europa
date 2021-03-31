@@ -8,6 +8,8 @@ members = [
     "bin/europa/rpc",
     "bin/europa/executor",
     "bin/europa/runtime",
+    "bin/europa/pallets/account-linker",
+    "bin/europa/pallets/offchain-worker",
 
     "client/api",
     "client/cli",

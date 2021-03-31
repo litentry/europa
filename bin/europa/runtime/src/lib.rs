@@ -35,7 +35,7 @@ mod litentry_extensions;
 use crate::litentry_extensions::FetchBalancesExtension;
 
 mod constants;
-use crate::chain_extensions::EuropaExt;
+// use crate::chain_extensions::EuropaExt;
 use crate::constants::{currency::*, fee::WeightToFee};
 
 /// An index to a block.
@@ -287,7 +287,7 @@ impl pallet_contracts::Config for Runtime {
 	type MaxValueSize = MaxValueSize;
 	type WeightPrice = pallet_transaction_payment::Module<Self>;
 	type WeightInfo = pallet_contracts::weights::SubstrateWeight<Self>;
-	type ChainExtension = EuropaExt;
+	type ChainExtension = FetchBalancesExtension;
 	type DeletionQueueDepth = DeletionQueueDepth;
 	type DeletionWeightLimit = DeletionWeightLimit;
 }
@@ -295,6 +295,16 @@ impl pallet_contracts::Config for Runtime {
 impl pallet_sudo::Config for Runtime {
 	type Event = Event;
 	type Call = Call;
+}
+
+impl litentry_offchain_worker::Config for Runtime {
+	type Event = Event;
+	type WeightInfo = litentry_offchain_worker::weights::SubstrateWeight<Runtime>;
+}
+
+impl litentry_account_linker::Config for Runtime {
+	type Event = Event;
+	type WeightInfo = litentry_account_linker::weights::SubstrateWeight<Runtime>;
 }
 
 // Create the runtime by composing the FRAME pallets that were previously configured.
@@ -313,6 +323,8 @@ construct_runtime!(
 		Contracts: pallet_contracts::{Pallet, Call, Config<T>, Storage, Event<T>},
 
 		Sudo: pallet_sudo::{Pallet, Call, Config<T>, Storage, Event<T>},
+		AccountLinkerModule: litentry_account_linker::{Pallet, Call, Storage, Event<T>},
+		OffchainWorkerModule: litentry_offchain_worker::{Pallet, Call, Storage, Event<T>},
 	}
 );
 
