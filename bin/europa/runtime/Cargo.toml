@@ -13,6 +13,10 @@ codec = { package = "parity-scale-codec", version = "2.0.0", default-features = 
 serde = { version = "1.0.101", optional = true, features = ["derive"] }
 smallvec = "1.4.1"
 
+# Litentry pallets
+litentry-offchain-worker = {package = "pallet-offchain-worker", path = "../pallets/offchain-worker", default-features = false }
+litentry-account-linker = {package = "pallet-account-linker", path = "../pallets/account-linker", default-features = false }
+
 # Substrate primitives
 sp-api = { version = "3.0.0", git = "https://github.com/paritytech/substrate", branch = "master", default-features = false }
 sp-block-builder = { version = "3.0.0", git = "https://github.com/paritytech/substrate", branch = "master", default-features = false }

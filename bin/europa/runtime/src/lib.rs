@@ -28,7 +28,12 @@ use frame_support::{
 };
 use frame_system::limits::{BlockLength, BlockWeights};
 
+use litentry_offchain_worker;
+pub use litentry_account_linker;
 mod chain_extensions;
+mod litentry_extensions;
+use crate::litentry_extensions::FetchBalancesExtension;
+
 mod constants;
 use crate::chain_extensions::EuropaExt;
 use crate::constants::{currency::*, fee::WeightToFee};
