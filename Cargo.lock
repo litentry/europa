@@ -689,12 +689,22 @@ checksum = "cf1de2fe8c75bc145a2f577add951f8134889b4795d47466a54a5c846d691693"
 
 [[package]]
 name = "bitvec"
+version = "0.17.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "41262f11d771fd4a61aa3ce019fca363b4b6c282fca9da2a31186d3965a47a5c"
+dependencies = [
+ "either",
+ "radium 0.3.0",
+]
+
+[[package]]
+name = "bitvec"
 version = "0.20.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f5011ffc90248764d7005b0e10c7294f5aa1bd87d9dd7248f4ad475b347c294d"
 dependencies = [
  "funty",
- "radium",
+ "radium 0.6.2",
  "tap",
  "wyz",
 ]
@@ -4607,8 +4617,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7c740e5fbcb6847058b40ac7e5574766c6388f585e184d769910fe0d3a2ca861"
 dependencies = [
  "arrayvec 0.5.2",
+ "bitvec 0.17.4",
  "byte-slice-cast 0.3.5",
  "parity-scale-codec-derive 1.2.2",
+ "serde",
 ]
 
 [[package]]
@@ -4618,7 +4630,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0cd3dab59b5cf4bc81069ade0fc470341a1ef3ad5fa73e5a8943bed2ec12b2e8"
 dependencies = [
  "arrayvec 0.5.2",
- "bitvec",
+ "bitvec 0.20.1",
  "byte-slice-cast 1.0.0",
  "parity-scale-codec-derive 2.0.1",
  "serde",
@@ -5244,6 +5256,12 @@ checksum = "991431c3519a3f36861882da93630ce66b52918dcf1b8e2fd66b397fc96f28df"
 dependencies = [
  "proc-macro2 1.0.24",
 ]
+
+[[package]]
+name = "radium"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "def50a86306165861203e7f84ecffbbdfdea79f0e51039b33de1e952358c47ac"
 
 [[package]]
 name = "radium"
